@@ -161,7 +161,9 @@ INSERT INTO
 VALUES
     ('Digimon');
 
-/* Modify animals table */
+     /* Modify animals table */
+
+/* Modify species_id column */
 UPDATE
     animals
 SET
@@ -175,3 +177,39 @@ SET
     species_id = 1
 WHERE
     name NOT LIKE '%mon';
+
+/* Modify owners_id column */
+UPDATE
+    animals
+SET
+    owners_id = 1
+WHERE
+    name = 'Agumon';
+
+UPDATE
+    animals
+SET
+    owners_id = 2
+WHERE
+    name IN('Gabumon', 'Pikachu');
+
+UPDATE
+    animals
+SET
+    owners_id = 3
+WHERE
+    name IN('Devimon', 'Plantmon');
+
+UPDATE
+    animals
+SET
+    owners_id = 4
+WHERE
+    name IN('Charmander', 'Squirtle', 'Blossom');
+
+UPDATE
+    animals
+SET
+    owners_id = 5
+WHERE
+    name IN('Angemon', 'Boarmon');
