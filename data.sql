@@ -123,29 +123,40 @@ VALUES
 INSERT INTO
     owners(full_name, age)
 VALUES
-('Same Smith', 31);
+    ('Same Smith', 31);
 
 INSERT INTO
     owners(full_name, age)
 VALUES
-('Jennifer Orwell', 19);
+    ('Jennifer Orwell', 19);
 
 INSERT INTO
     owners(full_name, age)
 VALUES
-('Bob', 45);
+    ('Bob', 45);
 
 INSERT INTO
     owners(full_name, age)
 VALUES
-('Melody Pond', 77);
+    ('Melody Pond', 77);
 
 INSERT INTO
     owners(full_name, age)
 VALUES
-('Den Winchester', 14);
+    ('Den Winchester', 14);
 
 INSERT INTO
     owners(full_name, age)
 VALUES
-('Jodie Whittaker', 38);
+    ('Jodie Whittaker', 38);
+
+/* Species Data */
+INSERT INTO
+    species(name)
+VALUES
+('Pokemon');
+
+INSERT INTO
+    species(name)
+VALUES
+('Digimon');
