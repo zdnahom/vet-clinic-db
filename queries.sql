@@ -164,3 +164,71 @@ WHERE
     AND '2000-12-30'
 GROUP BY
     species;
+
+/* Queries using JOIN */
+SELECT
+    animals.name,
+    owners.full_name
+FROM
+    animals
+    JOIN owners ON owners.id = animals.owners_id
+WHERE
+    owners.full_name = 'Melody Pond';
+
+SELECT
+    animals.name,
+    species.name AS species
+FROM
+    animals
+    JOIN species ON species.id = animals.species_id
+WHERE
+    species.name = 'Pokemon';
+
+SELECT
+    animals.name,
+    owners.full_name
+FROM
+    animals
+    RIGHT JOIN owners ON owners.id = animals.owners_id;
+
+SELECT
+    COUNT(animals.name),
+    species.name
+FROM
+    animals
+    JOIN species ON species.id = animals.species_id
+GROUP BY
+    species.name;
+
+SELECT
+    animals.name,
+    species.name AS species,
+    owners.full_name AS owned_by
+FROM
+    animals
+    JOIN owners ON owners.id = animals.owners_id
+    JOIN species ON species.id = animals.species_id
+WHERE
+    owners.full_name = 'Jennifer Orwell'
+    AND species.name = 'Digimon';
+
+SELECT
+    animals.name,
+    owners.full_name AS owned_by
+FROM
+    animals
+    JOIN owners ON owners.id = animals.owners_id
+WHERE
+    owners.id = 5
+    AND animals.escape_attempts = 0;
+
+SELECT
+    owners.full_name AS owned_by,
+    COUNT(animals.name) AS total_animals
+FROM
+    animals
+    RIGHT JOIN owners ON owners.id = animals.owners_id
+GROUP BY
+    owners.full_name
+ORDER BY
+    total_animals DESC;
