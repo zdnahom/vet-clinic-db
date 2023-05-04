@@ -28,3 +28,13 @@ CREATE TABLE species(
 
 ALTER TABLE
     animals DROP COLUMN species;
+
+ALTER TABLE
+    animals
+ADD
+    species_id;
+
+ALTER TABLE
+    animals
+ADD
+    CONSTRAINT fk_animals FOREIGN KEY(species_id) REFERENCES species(id) ON DELETE CASCADE;
