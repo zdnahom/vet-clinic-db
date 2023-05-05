@@ -55,5 +55,10 @@ CREATE TABLE vets(
     age INT NOT NULL,
     date_of_graduation DATE NOT NULL,
     PRIMARY KEY(id)
-);  
+);
 
+CREATE TABLE specializations(
+    species_id INT REFERENCES species(id) ON DELETE CASCADE,
+    vets_id INT REFERENCES vets(id) ON DELETE CASCADE,
+    PRIMARY KEY(species_id, vets_id)
+);
