@@ -259,7 +259,7 @@ VALUES
 INSERT INTO
     visits
 VALUES
-(1, 2, '2020-05-24');
+(1, 1, '2020-05-24');
 
 INSERT INTO
     visits
