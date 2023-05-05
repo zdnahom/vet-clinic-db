@@ -217,19 +217,40 @@ WHERE
 INSERT INTO
     vets(name, age, date_of_graduation)
 VALUES
-('William Tatcher', 45, '2000-04-23');
+    ('William Tatcher', 45, '2000-04-23');
 
 INSERT INTO
     vets(name, age, date_of_graduation)
 VALUES
-('Maisy Smith', 26, '2019-01-17');
+    ('Maisy Smith', 26, '2019-01-17');
 
 INSERT INTO
     vets(name, age, date_of_graduation)
 VALUES
-('Stephanie Mendez', 64, '1981-05-04');
+    ('Stephanie Mendez', 64, '1981-05-04');
 
 INSERT INTO
     vets(name, age, date_of_graduation)
 VALUES
-('Jack Harkness', 38, '2008-06-08');
+    ('Jack Harkness', 38, '2008-06-08');
+
+/* Specialization Data */
+INSERT INTO
+    specializations
+VALUES
+(1, 1);
+
+INSERT INTO
+    specializations
+VALUES
+(2, 3);
+
+INSERT INTO
+    specializations
+VALUES
+(1, 3);
+
+INSERT INTO
+    specializations
+VALUES
+(2, 4);
