@@ -67,5 +67,5 @@ CREATE TABLE visits(
     animals_id INT REFERENCES animals(id) ON DELETE CASCADE,
     vets_id INT REFERENCES vets(id) ON DELETE CASCADE,
     visit_date DATE NOT NULL,
-    PRIMARY KEY(animals_id, vets_id)
+    PRIMARY KEY(animals_id, vets_id,visit_date)
 );
