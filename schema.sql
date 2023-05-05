@@ -62,3 +62,10 @@ CREATE TABLE specializations(
     vets_id INT REFERENCES vets(id) ON DELETE CASCADE,
     PRIMARY KEY(species_id, vets_id)
 );
+
+CREATE TABLE visits(
+    animals_id INT REFERENCES animals(id) ON DELETE CASCADE,
+    vets_id INT REFERENCES vets(id) ON DELETE CASCADE,
+    visit_date DATE NOT NULL,
+    PRIMARY KEY(animals_id, vets_id)
+);
