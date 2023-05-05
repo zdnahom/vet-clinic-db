@@ -277,17 +277,16 @@ WHERE
     AND '2020-08-30';
 
 SELECT
-    animals.name AS animals_name,
-    COUNT(visits.visit_date) AS total_visits
+    animals.name,
+    COUNT(animals.name) AS total_visits
 FROM
-    animals
-    JOIN visits ON animals.id = visits.animals_id
-    JOIN vets ON vets.id = visits.vets_id
+    visits
+    LEFT JOIN animals ON animals.id = visits.animals_id
 GROUP BY
-    animals.id
+    animals.name
 ORDER BY
     total_visits DESC
-limit
+LIMIT
     1;
 
 SELECT
@@ -316,15 +315,20 @@ limit
     1;
 
 SELECT
-    COUNT(vets.name) AS vets_without_specialization
+    COUNT(*) AS total_visits
 FROM
-    animals
-    JOIN visits ON visits.animals_id = animals.id
-    JOIN vets ON vets.id = visits.vets_id
-    LEFT JOIN specializations ON specializations.vets_id = vets.id
-    AND specializations.species_id = animals.species_id
+    visits
+    LEFT JOIN animals ON animals.id = visits.animals_id
+    LEFT JOIN vets ON vets.id = visits.vets_id
 WHERE
-    specializations.species_id IS NULL;
+    animals.species_id NOT IN (
+        SELECT
+            specializations.species_id
+        FROM
+            specializations
+        WHERE
+            specializations.vets_id = vets.id
+    );
 
 SELECT
     species.name AS species,
