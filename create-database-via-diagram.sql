@@ -13,7 +13,7 @@ CREATE TABLE medical_histories(
     patient_id INT NOT NULL,
     status VARCHAR(255),
     FOREIGN KEY(patient_id) REFERENCES patients(id) ON DELETE CASCADE,
-    PRIMARY KEY(id),
+    PRIMARY KEY(id)
 );
 
 CREATE TABLE treatments(
@@ -28,7 +28,7 @@ CREATE TABLE medical_histories_treatments(
     treatment_id INT NOT NULL,
     FOREIGN KEY(history_id) REFERENCES medical_histories(id) ON DELETE CASCADE,
     FOREIGN KEY(treatment_id) REFERENCES treatments(id) ON DELETE CASCADE,
-    PRIMARY KEY(history_id, treatment_id),
+    PRIMARY KEY(history_id, treatment_id)
 );
 
 CREATE TABLE invoices (
@@ -36,8 +36,8 @@ CREATE TABLE invoices (
     total_amount DECIMAL NOT NULL,
     generated_at TIMESTAMP NOT NULL,
     payed_at TIMESTAMP NOT NULL,
-    medical_history_id INT NOT NULL,
-    FOREIGN KEY(medical_history) REFERENCES medical_histories(id) UNIQUE ON DELETE CASCADE,
+    history_id INT UNIQUE NOT NULL,
+    FOREIGN KEY(history_id) REFERENCES medical_histories(id) ON DELETE CASCADE,
     PRIMARY KEY(id)
 );
 
@@ -50,5 +50,5 @@ CREATE TABLE invoice_items (
     treatment_id INT NOT NULL,
     FOREIGN KEY(invoice_id) REFERENCES invoices(id) ON DELETE CASCADE,
     FOREIGN KEY(treatment_id) REFERENCES treatments(id) ON DELETE CASCADE,
-    PRIMARY KEY(id),
-)
+    PRIMARY KEY(id)
+);
